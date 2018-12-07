@@ -17,7 +17,7 @@ class seq2seq(nn.Block):
 
         h_0 = [nd.zeros((self.num_layers, batch_size, self.dim_h), ctx=ctx) for i in range(2)]
         output, states = self.lstm_1(query, h_0)
-        output, states = self.lstm_2(query, states)
+        output, states = self.lstm_2(label, states)
 
         return states
 
